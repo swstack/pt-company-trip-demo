@@ -37,9 +37,41 @@ function connectBean(name, callback) {
 
 function sendEmail(to, from, body) {
 
+
+
 }
 
 
 connectBean('DemoBean', (bean)=> {
-  console.log('Suh.')
+  let accel = {};
+
+  async.whilst(
+
+    // Test
+    function() {
+      // If accel is flipped over, return False
+
+    },
+
+    // iteratee
+    function(callback) {
+
+      setTimeout(function() {
+
+        bean.readAccelerometer((err, response)=> {
+          accel = response
+          callback(null, response)
+        })
+
+      }, 1000);
+
+    },
+
+    // Error/Done
+    function (err, n) {
+      // All done, send an email
+      sendEmail('sstack@punchthrough.com', 'sstack@punchthrough.com', 'You Da Worst')
+    }
+  )
+
 })
