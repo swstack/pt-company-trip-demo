@@ -9,6 +9,7 @@
   "author": "Stephen Stack",
   "license": "ISC",
   "dependencies": {
-    "bean-sdk": "0.6.1"
+    "bean-sdk": "0.6.1",
+    "async": "*"
   }
 }

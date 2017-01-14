@@ -1,4 +1,5 @@
 let sdk = require('bean-sdk').sdk()
+let async = require('async')
 
 
 function logAndExit(err, msg) {
@@ -10,6 +11,7 @@ function logAndExit(err, msg) {
 
 
 function connectBean(name, callback) {
+
   sdk.on('discover', (scannedDevice)=> {
 
     if (scannedDevice.getName() === name) {
@@ -36,9 +38,7 @@ function connectBean(name, callback) {
 
 
 function sendEmail(to, from, body) {
-
-
-
+  console.log(`Sending email from ${from} to ${to} with body ${body}`)
 }
 
 
@@ -50,21 +50,23 @@ connectBean('DemoBean', (bean)=> {
     // Test
     function() {
       // If accel is flipped over, return False
+      if (accel.z_axis < 0) {
+        return false
+      } else {
+
+        console.log('.')
+        return true
+      }
 
     },
 
     // iteratee
     function(callback) {
 
-      setTimeout(function() {
-
-        bean.readAccelerometer((err, response)=> {
-          accel = response
-          callback(null, response)
-        })
-
-      }, 1000);
-
+      bean.readAccelerometer((err, response)=> {
+        accel = response
+        callback(err)
+      })
     },
 
     // Error/Done
