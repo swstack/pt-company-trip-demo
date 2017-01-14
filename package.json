@@ -1,0 +1,14 @@
+{
+  "name": "pt-company-trip-demo",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PunchThrough/bean-sdk-node.git"
+  },
+  "author": "Stephen Stack",
+  "license": "ISC",
+  "dependencies": {
+    "bean-sdk": "0.6.1"
+  }
+}
