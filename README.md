@@ -1,6 +1,6 @@
 # Punch Through Company Trip Demo '17
 
-This is a Node.js app that connects the Bean to the internet.
+This is a Node.js app that connects the Bean to the Internet.
 
 ## BLE Flow
 
